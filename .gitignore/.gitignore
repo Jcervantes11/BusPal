@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+using namespace std;
+
+int busca(char *frase,char *palabra){
+	int cont=0,cont1=0;
+	for(int x=0;x<strlen(frase) && frase[x]!='\0';x++){
+		int i;
+		for( i=0; i<strlen(frase); i++){
+	        if(frase[x]==palabra[i]){
+				cont++;
+
+        	}
+    	}
+    	if((int(frase[x])==32)) // condicional de espacios en blancos
+		{
+			x++;
+		}
+    	if(cont==strlen(palabra)){
+    		cont1++;
+    		cont=0;
+    		i=0;
+
+		}
+	}
+	return cont1;;
+}
+
+int main(){
+	int gran=0;
+	char frase[50];
+	char palabra[50];
+	cout<<"Ingrese la cadena de caracter: "<<endl;
+	cin.getline(frase,50);
+	cout<<"Ingrese palabra a buscar: "<<endl;
+	cin.getline(palabra,50);
+
+	gran=busca(frase,palabra);
+	cout<<gran;
+}
